@@ -69,18 +69,18 @@ public class WampusWorldAgent extends Agent {
     private void generateMap() {
         this.wampusMap = new Room[NUM_OF_ROWS][NUM_OF_COLUMNS];
         this.wampusMap[0][0] = new Room();
-        this.wampusMap[0][1] = new Room(BREEZE);
-        this.wampusMap[0][2] = new Room(PIT);
-        this.wampusMap[0][3] = new Room(BREEZE);
-        this.wampusMap[1][0] = new Room(STENCH);
-        this.wampusMap[1][3] = new Room(BREEZE);
-        this.wampusMap[2][0] = new Room(WAMPUS, STENCH);
-        this.wampusMap[2][1] = new Room(BREEZE, STENCH, GOLD);
-        this.wampusMap[2][2] = new Room(PIT);
-        this.wampusMap[2][3] = new Room(BREEZE);
-        this.wampusMap[3][0] = new Room(STENCH);
+        this.wampusMap[0][1] = new Room(PIT);
+        this.wampusMap[0][2] = new Room(BREEZE);
+        this.wampusMap[0][3] = new Room(STENCH);
+        this.wampusMap[1][0] = new Room(BREEZE);
+        this.wampusMap[1][3] = new Room(WAMPUS, STENCH);
+        this.wampusMap[2][0] = new Room(BREEZE);
+        this.wampusMap[2][1] = new Room(PIT);
+        this.wampusMap[2][2] = new Room(BREEZE);
+        this.wampusMap[2][3] = new Room(STENCH);
+        this.wampusMap[3][0] = new Room(PIT);
         this.wampusMap[3][2] = new Room(BREEZE);
-        this.wampusMap[3][3] = new Room(PIT);
+        this.wampusMap[3][3] = new Room(BREEZE, GOLD);
         for (int i=0; i < this.wampusMap.length; i++){
             for (int j= 0; j < this.wampusMap[i].length; j++){
                 if (this.wampusMap[i][j] == null) {
@@ -119,7 +119,7 @@ public class WampusWorldAgent extends Agent {
                     reply.setContent(wampusMap[0][0].events.toString());
                     myAgent.send(reply);
                 }
-//
+
             }
             else {
                 block();
